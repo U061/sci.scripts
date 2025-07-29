@@ -1,0 +1,58 @@
+define( function() {
+
+function PageModule()
+{
+};
+
+PageModule.prototype.load = function( oPage ) {
+
+
+  function scriptExists(url) {
+    return document.querySelectorAll(`script[src="${url}"]`).length > 0;
+  }
+
+
+var link = "https://akconcept.co.uk/sci/homepage/v3/home_inject.css?v=12";
+  if(scriptExists(link)) {
+  console.log("SCI link Duplicate : " + link);
+  } else {
+    var element = document.createElement("link");
+    element.setAttribute("href", link);
+    element.setAttribute('rel', 'stylesheet');
+    element.setAttribute('type', 'text/css');
+
+    document.head.appendChild(element);
+  }
+
+
+
+
+var js_file = "https://akconcept.co.uk/sci/homepage/v3/home_inject.js?v=13";
+
+var script = document.createElement('script');
+ // script.async = true;
+  script.setAttribute('src', js_file);
+  script.setAttribute('type', 'text/javascript');
+
+document.head.appendChild(script);
+
+
+};
+
+PageModule.prototype.show = function( oPage )
+{
+
+};
+
+PageModule.prototype.hide = function( oPage )
+{
+
+};
+
+PageModule.prototype.destroy = function( oPage )
+{
+
+};
+
+return PageModule;
+});
