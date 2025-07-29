@@ -4,6 +4,39 @@
                     <div id="custom_request" onclick="change_request()" style="padding-left:13px;float: left"><img style="height:20px;padding-left:10px;cursor:pointer;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRklEQVR4nO2ZPWsUQRjHf0UwwbxxgiA5e8HGq6IiFz+AZ53CrxEIadIY7EPAT5BaCEREJAasFETEgEVieYWWeSkMCY4MPgfLsrvzzLmZmT3uD0+z8/rb/8wwLzDWWMH1FNgHzgATOc6A90DPF+JFAp03JbHh44RJPHoakP0EOmocsacBOU2go8YRJxoQ05BwSlPJd6ADbAN/PBr/DWwC94FpYA54CHyMBdLJ5H8MHCjK9IF7Be0tAxexQLZzZSYUTtQJYeoCscNpKVdutyL/phLiAvgUEsTGN3FioMkKmEUlxLLMmaAgg9gViCqYmVwb6yUQVvOxQGy8Aaak/DVgJ5duV6i8ViXtEniW+T4XE6TImdeZNLvcFmk948RAD2KDZGFawGf5dgQsoNdWCiBGnMhCtD0gOsB5KiDmPyD6HvUHAamCWMhsUWZkud3ycMKEAjmsgLgl+7Q6fpZTV+VEWyCNzKGjVEEOlU58AW7U4I5TISCK0qKD+AynliOPiQXiM7Et8G1lXhMSZJjVqU4YpzSV/FAOJ98f0Ja6g4F0h4TQwHRDgszWMDTKYGZjOjLsylME0w0J0pcze0sa1o7rsvnWlbqWPDaOtYCkECNxZXrsxvj3DmFG4RK7l0BHjSOeoNRGAp01JfFcC5F1Zi+ROXMqfVE7odGkouE1GqCbikeYou16cnrkALGXbo3QWgXEV7kyTV7TwM8SiF/AHRqg68CrEgh7YLpLQ/ShAMBeqr2UG/TG6J08odnd6VtgpeLYOtZYjIj+Auqw/obx52KIAAAAAElFTkSuQmCC"></div>
                     */
 
+class ButtonSwitch {
+  constructor(domNode) {
+    this.switchNode = domNode;
+    this.switchNode.addEventListener('click', () => this.toggleStatus());
+
+    // Set background color for the SVG container Rect
+    var color = getComputedStyle(this.switchNode).getPropertyValue(
+      'background-color'
+    );
+    var containerNode = this.switchNode.querySelector('rect.container');
+    containerNode.setAttribute('fill', color);
+  }
+
+  // Switch state of a switch
+  toggleStatus() {
+    const currentState =
+      this.switchNode.getAttribute('aria-checked') === 'true';
+    const newState = String(!currentState);
+
+    this.switchNode.setAttribute('aria-checked', newState);
+  }
+}
+
+// Initialize switches
+window.addEventListener('load', function () {
+  // Initialize the Switch component on all matching DOM nodes
+  Array.from(document.querySelectorAll('button[role^=switch]')).forEach(
+    (element) => new ButtonSwitch(element)
+  );
+});
+
+
+
 var customSettings = `<div style="display: flex;   justify-content: space-between;  width: 100%;">
 
 <div class="icon" id="custom_request" title="Raise a change request." onclick="change_request()" style=" cursor:pointer; width: 29px;
