@@ -12,7 +12,7 @@ PageModule.prototype.load = function( oPage ) {
   }
 
 
-var link = "https://akconcept.co.uk/sci/homepage/v1/home_inject.css?v=12";
+var link = "https://akconcept.co.uk/sci/homepage/v3/home_inject.css?v=12";
   if(scriptExists(link)) {
   console.log("SCI link Duplicate : " + link);
   } else {
@@ -27,18 +27,7 @@ var link = "https://akconcept.co.uk/sci/homepage/v1/home_inject.css?v=12";
 
 
 
-
-/*
-var sweetcdn = "https://alliance-healthcare.000webhostapp.com/sci/js/sweetalert.js";
-
-var sweetalert = document.createElement('script');
- // script.async = true;
-  sweetalert.setAttribute('src', sweetcdn);
-  sweetalert.setAttribute('type', 'text/javascript');
-
-document.head.appendChild(sweetalert); */
-
-var js_file = "https://akconcept.co.uk/sci/homepage/v1/home_inject.js?v=13";
+var js_file = "https://akconcept.co.uk/sci/homepage/v3/home_inject.js?v=13";
 
 var script = document.createElement('script');
  // script.async = true;
@@ -46,29 +35,6 @@ var script = document.createElement('script');
   script.setAttribute('type', 'text/javascript');
 
 document.head.appendChild(script);
-
-
-
-/*
-var jq = "https://ualos-sci.sce.manh.com/bi/lib/jquery/3.4.1/jquery.min.js";
-
-var script1 = document.createElement('script');
- // script.async = true;
-  script1.setAttribute('src', jq);
-  script1.setAttribute('type', 'text/javascript');
-
-document.head.appendChild(script1);
-
-var fa = "https://kit.fontawesome.com/4647a2d2af.js";
-
-var script2 = document.createElement('script');
- // script.async = true;
-  script2.setAttribute('src', fa);
- // script2.setAttribute('crossorigin', 'anonymous');
-
-document.body.appendChild(script2);
-
-*/
 
 
 };
