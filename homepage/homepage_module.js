@@ -12,7 +12,7 @@ PageModule.prototype.load = function( oPage ) {
   }
 
 
-var link = "https://akconcept.co.uk/sci/homepage/v3/home_inject.css?v=12";
+var link = "https://u061.github.io/sci.scripts/homepage/inject.css";
   if(scriptExists(link)) {
   console.log("SCI link Duplicate : " + link);
   } else {
@@ -27,7 +27,7 @@ var link = "https://akconcept.co.uk/sci/homepage/v3/home_inject.css?v=12";
 
 
 
-var js_file = "https://akconcept.co.uk/sci/homepage/v3/home_inject.js?v=13";
+var js_file = "https://u061.github.io/sci.scripts/homepage/inject.js";
 
 var script = document.createElement('script');
  // script.async = true;
